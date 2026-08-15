@@ -1,0 +1,10 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "drive-point-local",
+      "url": "http://localhost:4173",
+      "port": 4173
+    }
+  ]
+}
