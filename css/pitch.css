@@ -1,0 +1,259 @@
+/* ==========================================================================
+   Pitch page – Vorher/Nachher comparison for Simon
+   Reuses tokens and components from css/style.css. This file only adds
+   what's specific to the pitch page: intro, old-mock recreation, table,
+   pricing cards, closing note.
+   ========================================================================== */
+
+body { background: var(--cream); }
+
+.pitch-header {
+  padding: 48px 0 8px;
+  text-align: center;
+}
+.pitch-header .eyebrow { justify-content: center; }
+.pitch-header h1 { margin-bottom: 14px; }
+.pitch-header .lede { margin: 0 auto; max-width: 62ch; text-align: left; }
+.pitch-header .lede + .lede { margin-top: 12px; }
+
+.pitch-section { padding: 56px 0; }
+.pitch-section .section-head { max-width: 720px; }
+.pitch-section .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+
+/* ---------------------------------- Old-mock recreation ---------------------------------- */
+/* Deliberately plain/generic typography + the client's real measured colors,
+   to read as "existing WordPress theme", not a caricature. */
+
+.old-mock {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #fff;
+  color: #303030;
+}
+.old-mock-topbar {
+  background: #000;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 10px 22px;
+}
+.old-mock-topbar span {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.14);
+  color: #fff;
+  font-size: 12px;
+  display: flex; align-items: center; justify-content: center;
+}
+.old-mock-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 32px;
+  border-bottom: 1px solid #eee;
+}
+.old-mock-logo { height: 34px; }
+.old-mock-nav { display: flex; gap: 26px; }
+.old-mock-nav a { color: #303030; font-size: 13px; font-weight: 700; letter-spacing: .03em; }
+.old-mock-nav a:first-child { color: #e6301f; }
+
+.old-mock-hero { position: relative; height: 360px; overflow: hidden; }
+.old-mock-hero img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 30%; filter: brightness(0.62); }
+.old-mock-hero-overlay {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+  padding: 0 40px;
+}
+.old-mock-hero-overlay h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+  font-size: 34px;
+  line-height: 1.35;
+  font-weight: 700;
+  letter-spacing: .01em;
+}
+
+.old-mock-links {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  padding: 30px 20px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+.old-mock-links span { color: #e6301f; font-size: 15px; font-weight: 700; line-height: 1.4; }
+
+.old-mock-cta {
+  text-align: center;
+  padding: 26px 20px;
+  color: #ec6707;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.6;
+  border-bottom: 1px solid #eee;
+}
+
+.old-mock-stats {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  padding: 30px 20px;
+  text-align: center;
+}
+.old-mock-stats strong { display: block; font-size: 30px; color: #303030; }
+.old-mock-stats span { font-size: 12px; letter-spacing: .08em; color: #999; }
+
+.old-mock-footer {
+  background: #f5f5f5;
+  text-align: center;
+  padding: 26px 20px;
+  font-size: 13px;
+  color: #666;
+  line-height: 1.8;
+}
+
+/* ---------------------------------- New-mock wrapper ---------------------------------- */
+/* The real site markup/classes get dropped in here — this just neutralises
+   the fixed sticky/box-shadow behaviour that only makes sense in-page. */
+.new-mock .site-header { position: static; box-shadow: none; }
+.new-mock .hero { padding-bottom: 48px; }
+
+/* ---------------------------------- Comparison table ---------------------------------- */
+
+.compare-table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius-m);
+  border: 1px solid var(--line);
+  background: #fff;
+}
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+}
+.compare-table th, .compare-table td {
+  text-align: left;
+  padding: 16px 20px;
+  font-size: 0.94rem;
+  vertical-align: top;
+}
+.compare-table thead th {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--navy-900);
+  background: var(--cream);
+  border-bottom: 1px solid var(--line);
+}
+.compare-table tbody tr:not(:last-child) td { border-bottom: 1px solid var(--line); }
+.compare-table tbody th {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--navy-900);
+  white-space: nowrap;
+}
+.compare-table td.cell-old { color: var(--ink-soft); }
+.compare-table td.cell-new { color: var(--ink); font-weight: 500; }
+.compare-table td.cell-new::before { content: "✓ "; color: var(--whatsapp-dark); font-weight: 700; }
+
+/* ---------------------------------- Pricing ---------------------------------- */
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+}
+@media (max-width: 720px) { .pricing-grid { grid-template-columns: 1fr; } }
+
+.price-offer-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  padding: 36px;
+  box-shadow: var(--shadow-card);
+}
+.price-offer-card.featured { border: 2px solid var(--orange-600); }
+.price-offer-card .kicker { font-family: var(--font-display); font-weight: 700; font-size: 0.78rem; letter-spacing: .06em; text-transform: uppercase; color: var(--orange-600); margin-bottom: 10px; }
+.price-offer-card .amount { font-family: var(--font-display); font-size: 2.4rem; font-weight: 700; color: var(--navy-900); margin-bottom: 4px; }
+.price-offer-card .amount span { font-size: 1rem; font-weight: 500; color: var(--ink-soft); }
+.price-offer-card p.desc { color: var(--ink-soft); margin-bottom: 20px; }
+.price-offer-card ul { display: grid; gap: 10px; }
+.price-offer-card ul li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.94rem; }
+.price-offer-card ul li svg { width: 18px; height: 18px; color: var(--whatsapp-dark); flex-shrink: 0; margin-top: 2px; }
+
+.pitch-note {
+  margin-top: 30px;
+  background: var(--navy-900);
+  border-radius: var(--radius-l);
+  padding: 32px 36px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.pitch-note svg { width: 30px; height: 30px; color: var(--orange-500); flex-shrink: 0; }
+.pitch-note p { color: rgba(255,255,255,0.88); font-size: 1rem; line-height: 1.6; }
+.pitch-note strong { color: #fff; }
+@media (max-width: 640px) { .pitch-note { flex-direction: column; align-items: flex-start; } }
+
+.pitch-footer {
+  text-align: center;
+  padding: 40px 0 60px;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+}
+
+/* ---------------------------------- Mobile: compact + table → cards ---------------------------------- */
+
+@media (max-width: 720px) {
+  .pitch-header { padding: 32px 0 4px; }
+  .pitch-header .lede { font-size: 0.94rem; }
+  .pitch-section { padding: 36px 0; }
+  .pitch-section .section-head { margin-bottom: 28px; }
+
+  .mockup-notes { font-size: 0.84rem; }
+
+  /* Table → one card per row: Bereich becomes the card title, Vorher/Nachher
+     stack underneath with their own small labels (from data-label). */
+  .compare-table-wrap { border: none; background: none; overflow: visible; }
+  .compare-table { min-width: 0; }
+  .compare-table thead { display: none; }
+  .compare-table, .compare-table tbody, .compare-table tr, .compare-table th, .compare-table td {
+    display: block;
+    width: 100%;
+  }
+  .compare-table tbody tr {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-m);
+    padding: 14px 16px;
+    margin-bottom: 12px;
+  }
+  .compare-table tbody tr:last-child { margin-bottom: 0; }
+  .compare-table tbody tr:not(:last-child) td { border-bottom: none; }
+  .compare-table tbody th {
+    padding: 0 0 8px;
+    font-size: 0.98rem;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 8px;
+  }
+  .compare-table td { padding: 6px 0; font-size: 0.88rem; }
+  .compare-table td::before {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+  /* Override the desktop inline "✓ " prefix — on mobile the checkmark
+     lives in the label above the text instead. */
+  .compare-table td.cell-old::before { content: attr(data-label); color: #b0755f; }
+  .compare-table td.cell-new::before { content: "✓ " attr(data-label); color: var(--whatsapp-dark); }
+
+  .pricing-grid { gap: 16px; }
+  .price-offer-card { padding: 26px; }
+  .price-offer-card .amount { font-size: 2rem; }
+
+  .pitch-note { padding: 24px; border-radius: var(--radius-m); }
+}
