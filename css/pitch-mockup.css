@@ -68,19 +68,19 @@
   align-items: center;
   gap: 8px;
   padding: 12px 16px;
-  background: #efe6f5;
+  background: #eeeeee;
   border-bottom: 1px solid rgba(0, 0, 0, .08);
 }
 .mockup-dot {
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background: #d4c3e0;
+  background: #cfcfcf;
 }
 .mockup-url {
   margin-left: 12px;
   font-size: .78rem;
-  color: #6c5876;
+  color: #666;
   background: #fff;
   padding: .25em 1em;
   border-radius: 999px;
@@ -96,7 +96,7 @@
   min-height: 260px;
   overflow: hidden;
   position: relative;
-  background: #f7f2fa;
+  background: #f5f5f5;
 }
 
 /* Design-width canvas the bespoke mockup content gets built at. JS sets
@@ -114,7 +114,7 @@
   display: grid;
   gap: .6em;
   font-size: .9rem;
-  color: #6c5876;
+  color: #666;
 }
 .mockup-notes li {
   padding-left: 1.4em;
