@@ -118,6 +118,10 @@ section { padding: 88px 0; }
 .btn svg { width: 20px; height: 20px; flex-shrink: 0; }
 .btn:active { transform: scale(0.97); }
 
+@media (max-width: 420px) {
+  .btn { white-space: normal; text-align: center; padding: 14px 20px; }
+}
+
 .btn-whatsapp {
   background: var(--whatsapp);
   color: #fff;
@@ -717,6 +721,12 @@ section { padding: 88px 0; }
   margin: 6px 0 4px;
 }
 .price-card .amount span { font-size: 1rem; color: var(--ink-soft); font-weight: 500; }
+
+@media (max-width: 400px) {
+  .price-card { padding: 26px 22px; }
+  .price-card .amount { font-size: 2.1rem; }
+  .price-card .amount span { display: block; margin-top: 2px; }
+}
 .price-card ul { margin: 22px 0 26px; }
 .price-card ul li {
   display: flex; align-items: flex-start; gap: 10px;
