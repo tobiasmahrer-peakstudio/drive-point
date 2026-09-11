@@ -249,7 +249,8 @@ section { padding: 88px 0; }
     border-bottom: 1px solid var(--line);
     box-shadow: var(--shadow-card);
   }
-  body.nav-open .nav-links a { padding: 12px 4px; border-bottom: 1px solid var(--line); }
+  body.nav-open .nav-links a { padding: 12px 4px; border-bottom: 1px solid var(--line); font-weight: 600; }
+  body.nav-open .nav-links a[aria-current="page"]::after { display: none; }
 }
 
 @media (max-width: 420px) {
