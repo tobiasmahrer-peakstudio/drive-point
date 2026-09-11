@@ -736,6 +736,7 @@ section { padding: 88px 0; }
 }
 .price-card ul li svg { width: 18px; height: 18px; color: var(--whatsapp); flex-shrink: 0; margin-top: 2px; }
 .price-card .note { font-size: 0.85rem; color: var(--ink-soft); margin-top: 14px; }
+.price-card .btn-block { margin-top: 22px; }
 
 .detail-photos {
   display: grid;
