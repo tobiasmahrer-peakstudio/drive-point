@@ -184,7 +184,6 @@ section { padding: 88px 0; }
 }
 .logo .dot { color: var(--orange-600); }
 .logo-img { height: 32px; width: auto; display: block; }
-.footer-grid .logo-img { filter: brightness(0) invert(1); }
 
 .main-nav {
   display: flex;
